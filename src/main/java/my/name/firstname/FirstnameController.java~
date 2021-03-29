@@ -1,0 +1,25 @@
+package my.name.firstname;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FirstnameController {
+    
+    @GetMapping("/firstname")
+    public Name getFirstname() {
+	return new Name("Vyacheslav");
+    }
+
+    public static class Name {
+	private String name;
+
+	public Name(String name) {
+	    this.name = name;
+	}
+
+	public String getName() {
+	    return name;
+	}
+    }
+}    
