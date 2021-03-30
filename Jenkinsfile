@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sh '''
                     echo "unpack jar"
-		    docker -t tercoz/firstname .
+		    docker build -t tercoz/firstname .
                 '''
             }
         }
