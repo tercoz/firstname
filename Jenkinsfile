@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh ''
+                sh '''
                     echo "mvn clean package"
                     mvn clean package
                 '''
@@ -11,7 +11,7 @@ pipeline {
         }
 	stage('Unpack jar') {
             steps {
-                sh ''
+                sh '''
                     echo "unpack jar"
                     cd /target
 		    mkdir dependency
@@ -23,7 +23,7 @@ pipeline {
         }
 	stage('Build image') {
             steps {
-                sh ''
+                sh '''
                     echo "unpack jar"
 		    docker -t tercoz/firstname .
                 '''
@@ -31,7 +31,7 @@ pipeline {
         }
 	stage('Run') {
             steps {
-                sh ''
+                sh '''
                     echo "run application"
 		    docker run --rm -dp 9081:8080 --net name --name my.firstname.host tercoz/firstname
                 '''
