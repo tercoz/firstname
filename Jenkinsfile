@@ -13,9 +13,9 @@ pipeline {
             steps {
                 sh '''
                     echo "unpack jar"
-                    cd /target
+                    cd target
 		    mkdir dependency
-		    cd /dependency
+		    cd dependency
 		    jar -xf ../firstname-0.0.1-SNAPSHOT.jar
 		    cd ../..
                 '''
